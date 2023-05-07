@@ -1,0 +1,14 @@
+.layout {
+  width: 100%;
+  height: calc(100% - 3.25rem);
+
+  .sidebar {
+    width: calc(100% / 6);
+    border-right: 1px solid #555;
+  }
+
+  .main-content {
+    height: calc(100% - 8rem);
+    text-align: center;
+  }
+}

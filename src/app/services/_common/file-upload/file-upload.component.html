@@ -1,0 +1,24 @@
+<div class="file-upload-wrapper">
+	<ngx-file-drop dropZoneLabel="Drop files here" [accept]="options.accept || '*'" (onFileDrop)="selectedFiles($event)">
+		<ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+			<span class="text-light">{{ options.explanation || "Drag and Drop or" }}</span>
+
+			<button (click)="openFileSelector()" mat-raised-button type="submit" color="primary" class="py-3"><span>Browse Files</span></button>
+		</ng-template>
+	</ngx-file-drop>
+
+	<div *ngIf="fileDropEntries.length > 0" class="text-start text-light mt-2">
+		<table class="table text-light">
+			<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let fileEntry of fileDropEntries">
+					<td>{{ fileEntry.relativePath }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

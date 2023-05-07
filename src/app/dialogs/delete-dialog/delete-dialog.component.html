@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Veri silinecek!</h1>
+<div mat-dialog-content>
+	<p>Bu veriyi silmek istediğine emin misin?</p>
+</div>
+<div mat-dialog-actions>
+	<button mat-button (click)="cancel()">İptal</button>
+	<button mat-button [mat-dialog-close]="data" cdkFocusInitial>Onayla</button>
+</div>

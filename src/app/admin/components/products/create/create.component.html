@@ -1,0 +1,21 @@
+<h3 class="text-center w-100">Create Product</h3>
+
+<mat-form-field appearance="fill" class="w-100">
+	<mat-label>Name</mat-label>
+	<input #inputName matInput>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="w-100">
+	<mat-label>Stock</mat-label>
+	<input #inputStock matInput type="number" min="0" value="0">
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="w-100">
+	<mat-label>Price</mat-label>
+	<input #inputPrice matInput type="number" min="0" value="0">
+</mat-form-field>
+
+<button (click)="create(inputName, inputStock, inputPrice)" mat-raised-button type="submit" color="primary" class="w-75 py-3">
+	<mat-icon aria-hidden="false" aria-label="Create product button icon" fontIcon="add_circle"></mat-icon>
+	<span>Create</span>
+</button>

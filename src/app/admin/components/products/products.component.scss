@@ -1,0 +1,15 @@
+.main {
+  height: 100%;
+  border: 1px solid #555;
+
+  .side {
+    &-container {
+      width: calc(100% / 4);
+      padding: 0;
+    }
+
+	&-item{
+		padding: 2rem;
+	}
+  }
+}

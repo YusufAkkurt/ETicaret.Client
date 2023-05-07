@@ -1,0 +1,21 @@
+@import "ngx-toastr/toastr";
+
+html,
+body {
+  height: 100%;
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-delete-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}

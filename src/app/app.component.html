@@ -1,0 +1,27 @@
+<header class="shadow">
+	<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+		<div class="container">
+			<a class="navbar-brand" routerLink="/">Mini E-Ticaret</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<div class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+					<a aria-current="page" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home</a>
+					<a aria-current="page" routerLinkActive="active" routerLink="/products" class="nav-item nav-link">Products</a>
+					<a aria-current="page" routerLinkActive="active" routerLink="/basket" class="nav-item nav-link">Basket</a>
+					<!-- <a aria-current="page" routerLinkActive="active" routerLink="/admin" class="text-info">Yönetim Paneli</a> -->
+					<button role="link" type="button" routerLink="/admin" class="nav-item ms-auto btn btn-sm btn-light px-4">Yönetim Paneli</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<ngx-spinner name="ball-scale-pulse" size="medium" type="ball-scale-pulse"></ngx-spinner>
+<ngx-spinner name="ball-clip-rotate-pulse" size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
+<ngx-spinner name="ball-scale-ripple-multiple" size="medium" type="ball-scale-ripple-multiple"></ngx-spinner>

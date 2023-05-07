@@ -1,0 +1,27 @@
+:host {
+  margin-top: 1rem;
+  width: 100%;
+
+  .file-upload-wrapper {
+    .btn {
+      line-height: 1;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+::ng-deep {
+  .ngx-file-drop__drop-zone {
+    border: 1px solid grey !important;
+    height: auto !important;
+    width: 100%;
+    padding: 0.5rem;
+
+    .ngx-file-drop__content {
+      display: flex;
+      gap: 0.7rem;
+      height: auto !important;
+      padding: 1rem 0;
+    }
+  }
+}
