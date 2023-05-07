@@ -12,9 +12,9 @@ import { FileUploadDialogComponent } from './file-upload-dialog/file-upload-dial
 	declarations: [DeleteDialogComponent, FileUploadDialogComponent],
 	imports: [
 		CommonModule,
+		FileUploadModule,
 		MatButtonModule,
 		MatDialogModule,
-		FileUploadModule,
 	],
 	exports: [DeleteDialogComponent, FileUploadDialogComponent]
 })

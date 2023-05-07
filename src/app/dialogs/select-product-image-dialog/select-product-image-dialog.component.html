@@ -2,6 +2,16 @@
 
 <mat-dialog-content class="mat-typography">
 	<app-file-upload [options]="fileUploadOptions"></app-file-upload>
+
+	<div class="image-wrapper">
+		<mat-card class="mat-card" *ngFor="let image of productImages">
+			<img [src]="image.path" [alt]="image.fileName" />
+
+			<mat-card-actions align="end">
+				<button mat-button (click)="deleteImage(image.id)" color="warn">DELETE</button>
+			</mat-card-actions>
+		</mat-card>
+	</div>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
