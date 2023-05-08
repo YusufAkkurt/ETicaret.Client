@@ -17,6 +17,7 @@ export class FileUploadOptions {
 	explanation?: string;
 	accept?: string;
 	isAdminPage?: boolean = false;
+	onAcceptFinnalyCallback?: () => void;
 }
 
 @Component({
@@ -64,6 +65,7 @@ export class FileUploadComponent extends BaseComponent {
 			() => {
 				this.fileDropEntries = [];
 				this.hideSpinner('ball-clip-rotate-pulse');
+				this.options?.onAcceptFinnalyCallback?.();
 			}
 		);
 	}

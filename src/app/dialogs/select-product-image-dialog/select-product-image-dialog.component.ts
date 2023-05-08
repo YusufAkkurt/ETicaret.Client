@@ -31,7 +31,8 @@ export class SelectProductImageDialogComponent extends BaseDialog<SelectProductI
 		controller: 'products',
 		action: 'upload',
 		queryString: `id=${this.data}`,
-		isAdminPage: true
+		isAdminPage: true,
+		onAcceptFinnalyCallback: () => this.readImages()
 	};
 
 	async readImages() {
