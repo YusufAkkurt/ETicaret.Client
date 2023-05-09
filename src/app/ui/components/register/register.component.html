@@ -47,8 +47,6 @@
 					<input type="password" id="passwordConfirm" formControlName="passwordConfirm" class="form-control" [class.is-invalid]="controls?.passwordConfirm?.dirty && controls?.passwordConfirm?.errors ?? registerForm.errors?.notSame || false" />
 
 					<div class="invalid-feedback">
-						<small *ngIf="controls?.passwordConfirm?.dirty && controls?.passwordConfirm?.errors?.required">Şifre Onayı'nı boş bırakmayın.</small>
-						<small *ngIf="controls?.passwordConfirm?.dirty && controls?.passwordConfirm?.errors?.minlength">Şifre Onayı en az 6 karakterli olmalıdır.</small>
 						<small *ngIf="controls?.passwordConfirm?.dirty && registerForm.errors?.notSame" class="d-block">Şifreler eşleşmiyor</small>
 					</div>
 				</div>
