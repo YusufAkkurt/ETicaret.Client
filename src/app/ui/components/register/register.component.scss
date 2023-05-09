@@ -1,0 +1,17 @@
+.card {
+  background-color: var(--bs-gray-900);
+}
+
+.form-control {
+  background-color: var(--bs-gray-800);
+  border-color: var(--bs-gray-800);
+  color: var(--bs-light);
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(#6f42c1, 0.35);
+  }
+
+  &.is-invalid{
+	border-color: var(--bs-red);
+  }
+}

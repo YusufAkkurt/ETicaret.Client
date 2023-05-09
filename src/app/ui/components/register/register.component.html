@@ -1,0 +1,62 @@
+<div *ngIf="registerForm" class="col-4 mx-auto py-4">
+	<div class="card">
+		<div class="card-body">
+			<form [formGroup]="registerForm" (ngSubmit)="submitForm()" autocomplete="off">
+				<div class="mb-3">
+					<label for="nameSurname" class="form-label">Ad Soyad</label>
+					<input type="text" id="nameSurname" formControlName="nameSurname" class="form-control" [class.is-invalid]="controls?.nameSurname?.dirty && controls?.nameSurname?.errors" />
+
+					<div class="invalid-feedback">
+						<small *ngIf="controls?.nameSurname?.dirty && controls?.nameSurname?.errors?.required">Ad Soyad'ı boş bırakmayın.</small>
+						<small *ngIf="controls?.nameSurname?.dirty && controls?.nameSurname?.errors?.minlength || controls?.nameSurname?.errors?.maxlength">Ad Soyad 3 ile 50 karakter arasında olmalıdır.</small>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="userName" class="form-label">Kullanıcı Adı</label>
+					<input type="text" id="userName" formControlName="userName" class="form-control" [class.is-invalid]="controls?.userName?.dirty && controls?.userName?.errors" />
+
+					<div class="invalid-feedback">
+						<small *ngIf="controls?.userName?.dirty && controls?.userName?.errors?.required">Kullanıcı Adı'nı boş bırakmayın.</small>
+						<small *ngIf="controls?.userName?.dirty && controls?.userName?.errors?.minlength || controls?.userName?.errors?.maxlength">Kullanıcı Adı 3 ile 50 karakter arasında olmalıdır.</small>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="email" class="form-label">Email address</label>
+					<input type="email" id="email" formControlName="email" class="form-control" [class.is-invalid]="controls?.email?.dirty && controls?.email?.errors" />
+
+					<div class="invalid-feedback">
+						<small *ngIf="controls?.email?.dirty && controls?.email?.errors?.required">E-Posta Adresi'ni boş bırakmayın.</small>
+						<small *ngIf="controls?.email?.dirty && controls?.email?.errors?.email">Girdiğiniz E-Posta Adresi geçersiz formatta.</small>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="password" class="form-label">Şifre</label>
+					<input type="password" id="password" formControlName="password" class="form-control" [class.is-invalid]="controls?.password?.dirty && controls?.password?.errors" />
+
+					<div class="invalid-feedback">
+						<small *ngIf="controls?.password?.dirty && controls?.password?.errors?.required">Şifre'yi boş bırakmayın.</small>
+						<small *ngIf="controls?.password?.dirty && controls?.password?.errors?.minlength">Şifre en az 6 karakterli olmalıdır.</small>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="passwordConfirm" class="form-label">Şifreyi Onayla</label>
+					<input type="password" id="passwordConfirm" formControlName="passwordConfirm" class="form-control" [class.is-invalid]="controls?.passwordConfirm?.dirty && controls?.passwordConfirm?.errors ?? registerForm.errors?.notSame || false" />
+
+					<div class="invalid-feedback">
+						<small *ngIf="controls?.passwordConfirm?.dirty && controls?.passwordConfirm?.errors?.required">Şifre Onayı'nı boş bırakmayın.</small>
+						<small *ngIf="controls?.passwordConfirm?.dirty && controls?.passwordConfirm?.errors?.minlength">Şifre Onayı en az 6 karakterli olmalıdır.</small>
+						<small *ngIf="controls?.passwordConfirm?.dirty && registerForm.errors?.notSame" class="d-block">Şifreler eşleşmiyor</small>
+					</div>
+				</div>
+
+				<div class="text-end pt-3">
+					<button mat-raised-button type="submit" color="primary" class="px-5">Kayıt Ol</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
