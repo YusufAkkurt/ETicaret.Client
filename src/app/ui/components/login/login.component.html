@@ -1,0 +1,30 @@
+<div *ngIf="loginForm" class="col-4 mx-auto py-4">
+	<div class="card">
+		<div class="card-body">
+			<form [formGroup]="loginForm" (ngSubmit)="submitForm()" autocomplete="off">
+				<div class="mb-3">
+					<label for="userNameOrEmail" class="form-label">Kullanıcı Adı veya E-Posta</label>
+					<input type="text" id="userNameOrEmail" formControlName="userNameOrEmail" class="form-control" [class.is-invalid]="controls?.userNameOrEmail?.dirty && controls?.userNameOrEmail?.errors" />
+
+					<div class="invalid-feedback">
+						<small *ngIf="controls?.userNameOrEmail?.dirty && controls?.userNameOrEmail?.errors?.required">Kullanıcı Adı'nı veya E-Posta Adresi'ni boş bırakmayın.</small>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="password" class="form-label">Şifre</label>
+					<input type="password" id="password" formControlName="password" class="form-control" [class.is-invalid]="controls?.password?.dirty && controls?.password?.errors" />
+
+					<div class="invalid-feedback">
+						<small *ngIf="controls?.password?.dirty && controls?.password?.errors?.required">Şifre'yi boş bırakmayın.</small>
+						<small *ngIf="controls?.password?.dirty && controls?.password?.errors?.minlength">Şifre en az 6 karakterli olmalıdır.</small>
+					</div>
+				</div>
+
+				<div class="text-end pt-3">
+					<button mat-raised-button type="submit" color="primary" class="px-5">Giriş Yap</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

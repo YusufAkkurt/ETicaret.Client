@@ -1,7 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { UserRegister } from '@app/requests/user-register';
 import { BaseComponent } from '@base/base.component';
 import { UserService } from '@services/_common/models/user.service';
 import { ToastService } from '@services/ui/toast.service';
