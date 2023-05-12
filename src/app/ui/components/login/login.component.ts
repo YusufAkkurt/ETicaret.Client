@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from '@base/base.component';
+import { AuthService } from '@services/_common/auth.service';
 import { UserService } from '@services/_common/models/user.service';
 import { ToastService } from '@services/ui/toast.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -18,9 +20,12 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
 	constructor(
 		spinnerService: NgxSpinnerService,
+		private router: Router,
 		private formBuilder: FormBuilder,
 		private userService: UserService,
+		private authService: AuthService,
 		private toastService: ToastService,
+		private activatedRoute: ActivatedRoute
 	) { super(spinnerService); }
 
 	initForm() {
@@ -29,6 +34,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
 			password: [null, [Validators.required, Validators.minLength(6)]],
 		});
 	}
+
+	checkReturnUrl() { this.activatedRoute.queryParams.subscribe(param => !!param["returnUrl"] ? this.router.navigateByUrl(param["returnUrl"]) : this.router.navigateByUrl("/")); }
 
 	async submitForm() {
 		try {
@@ -45,7 +52,11 @@ export class LoginComponent extends BaseComponent implements OnInit {
 				: this.toastService.message(response.message, 'Başarısız', { messageType: 'error' });
 		} catch (errorResponse: HttpErrorResponse | any) {
 			this.toastService.message(errorResponse instanceof HttpErrorResponse ? errorResponse.error : 'Bilinmeyen Hata', 'Başarısız', { messageType: 'error' });
-		} finally { this.hideSpinner('ball-scale-pulse'); }
+		} finally {
+			this.authService.identityCheck();
+			this.checkReturnUrl();
+			this.hideSpinner('ball-scale-pulse');
+		}
 	}
 
 	ngOnInit(): void { this.initForm(); }

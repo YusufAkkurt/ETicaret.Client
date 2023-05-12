@@ -12,9 +12,10 @@
 					<a aria-current="page" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Anasayfa</a>
 					<a aria-current="page" routerLinkActive="active" routerLink="/products" class="nav-item nav-link">Ürünler</a>
 					<a aria-current="page" routerLinkActive="active" routerLink="/basket" class="nav-item nav-link">Sepet</a>
-					<a aria-current="page" routerLinkActive="active" routerLink="/login" class="nav-item nav-link ms-lg-auto">Giriş Yap</a>
-					<a aria-current="page" routerLinkActive="active" routerLink="/register" class="nav-item nav-link">Kayıt Ol</a>
-					<button role="link" type="button" routerLink="/admin" class="nav-item btn btn-sm btn-light px-4 ms-4">Yönetim Paneli</button>
+					<a *ngIf="!authService.isAuthenticated" aria-current="page" routerLinkActive="active" routerLink="/login" class="nav-item nav-link ms-lg-auto">Giriş Yap</a>
+					<a *ngIf="!authService.isAuthenticated" aria-current="page" routerLinkActive="active" routerLink="/register" class="nav-item nav-link">Kayıt Ol</a>
+					<a *ngIf="authService.isAuthenticated" role="button" (click)="logOut()" aria-current="page" routerLinkActive="active" class="nav-item nav-link ms-lg-auto">Çıkış Yap</a>
+					<button *ngIf="authService.isAuthenticated" role="link" type="button" routerLink="/admin" class="nav-item btn btn-sm btn-light px-4 ms-4">Yönetim Paneli</button>
 				</div>
 			</div>
 		</div>
